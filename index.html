@@ -4,16 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1;
+        }
+        .button-container {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        #okButton {
+            padding: 10px 40px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-   <h1>hello t uh</h1>
+   <div class="content">
+       <h1>hello t uh</h1>
+   </div>
+   <div class="button-container">
+       <button id="okButton">OK</button>
+   </div>
    <script>
        document.addEventListener('DOMContentLoaded', function() {
-           const heading = document.querySelector('h1');
-           let isBlue = false;
-           heading.addEventListener('click', function() {
-               isBlue = !isBlue;
-               heading.style.color = isBlue ? 'blue' : '';
+           const okButton = document.getElementById('okButton');
+           const colors = ['#ffcccc', '#ccffcc', '#ccccff', '#ffffcc', '#ffccff', '#ccffff', ''];
+           let colorIndex = 0;
+           
+           okButton.addEventListener('click', function() {
+               colorIndex = (colorIndex + 1) % colors.length;
+               document.body.style.backgroundColor = colors[colorIndex];
            });
        });
    </script>
