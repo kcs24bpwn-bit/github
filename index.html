@@ -4,50 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body {
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-        }
-        .content {
-            flex: 1;
-        }
-        .button-container {
-            position: fixed;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            text-align: center;
-        }
-        #okButton {
-            padding: 10px 40px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
-   <div class="content">
-       <h1>hello t uh</h1>
-   </div>
-   <div class="button-container">
-       <button id="okButton">OK</button>
-   </div>
+   <h1>hello t uh</h1>
+   <br><br>
+   <button id="okButton">OK</button>
    <script>
-       document.addEventListener('DOMContentLoaded', function() {
-           const okButton = document.getElementById('okButton');
-           const colors = ['#ffcccc', '#ccffcc', '#ccccff', '#ffffcc', '#ffccff', '#ccffff', ''];
-           let colorIndex = 0;
-           
-           okButton.addEventListener('click', function() {
-               colorIndex = (colorIndex + 1) % colors.length;
-               document.body.style.backgroundColor = colors[colorIndex];
-           });
-       });
+       document.getElementById('okButton').onclick = function() {
+           var colors = ['red', 'green', 'blue', 'yellow', 'pink', 'white'];
+           var randomColor = colors[Math.floor(Math.random() * colors.length)];
+           document.body.style.backgroundColor = randomColor;
+       };
    </script>
 </body>
 </html>
