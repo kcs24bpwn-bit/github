@@ -7,5 +7,15 @@
 </head>
 <body>
    <h1>hello t uh</h1>
+   <script>
+       document.addEventListener('DOMContentLoaded', function() {
+           const heading = document.querySelector('h1');
+           let isBlue = false;
+           heading.addEventListener('click', function() {
+               isBlue = !isBlue;
+               heading.style.color = isBlue ? 'blue' : '';
+           });
+       });
+   </script>
 </body>
 </html>
