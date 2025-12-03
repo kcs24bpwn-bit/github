@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Task List</title>
 </head>
 <body>
-   <h1>hello t uh</h1>
+    <h1>Task List</h1>
+    <div>
+        <input type="text" id="taskInput" placeholder="Enter a task">
+        <button id="addTask">Add Task</button>
+    </div>
+    <ul id="taskList"></ul>
+
+    <script>
+        document.getElementById('addTask').addEventListener('click', function() {
+            var input = document.getElementById('taskInput');
+            var taskText = input.value.trim();
+            if (taskText) {
+                var li = document.createElement('li');
+                li.textContent = taskText;
+                li.addEventListener('click', function() {
+                    this.remove();
+                });
+                document.getElementById('taskList').appendChild(li);
+                input.value = '';
+            }
+        });
+
+        document.getElementById('taskInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('addTask').click();
+            }
+        });
+    </script>
 </body>
 </html>
